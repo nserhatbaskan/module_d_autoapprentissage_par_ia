@@ -274,6 +274,10 @@ body.dark .aeflogo{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANS
   #themeToggle,#backBtn{display:none}
   .clock{min-width:42px!important;font-size:14px!important}
 }
+h4{font-family:var(--display);font-weight:600;font-size:17px;margin:24px 0 8px;color:var(--ink);letter-spacing:-.01em}
+ol.steps{margin:8px 0 4px;padding-left:24px}
+ol.steps li{padding:6px 0;border-bottom:1px solid var(--rule);max-width:66ch;line-height:1.5}
+ol.steps li::marker{color:var(--hl);font-family:var(--mono);font-weight:600}
 </style>
   <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script>
 </head>
@@ -627,47 +631,89 @@ body.dark .aeflogo{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANS
     <p class="sig">L'IA en classe de FLE : prompter, adapter, vérifier — Dr. N. S. Başkan, Université de Marmara.</p>
     <div class="nav">
       <button class="btn ghost" onclick="resetAll()">↺ Recommencer</button>
-      <button class="btn" onclick="nextStep('tee')">Étape 2 : TEE Studio →</button>
+      <button class="btn" onclick="nextStep('tee')">Partie 2 · TEE →</button>
     </div>
   </section>
 
-  <!-- ETAPE 2 — TEE STUDIO -->
-  <section class="screen" id="tee" data-dur="2100">
-    <span class="stepnum">07 — Étape 2</span>
-    <h2>TEE — Du corpus propre au module d'auto-apprentissage</h2>
-    <p><span class="meta">35 min</span></p>
-    <p>Vous avez <em>conçu</em>, <em>cadré</em> et surtout <em>vérifié</em> votre activité : vous tenez des <strong>données propres</strong>. Transformons-les en un <strong>module d'auto-apprentissage</strong> — un environnement que vos apprenants explorent <em>en autonomie</em>, généré à partir de votre seul corpus.</p>
-    <div class="callout">Données propres → module d'auto-apprentissage. La relecture humaine de la Partie 1 n'était pas une corvée : c'est elle qui rend vos données assez fiables pour qu'un apprenant les utilise <em>seul</em>.</div>
-    <div class="callout blue">Le chemin : <strong>1.</strong> générez la « fiche exploitable » dans AI Studio &nbsp;→&nbsp; <strong>2.</strong> collez-la ici et téléchargez le document Word &nbsp;→&nbsp; <strong>3.</strong> téléversez-le dans « Corpus personnalisé ».</div>
-    <div class="callout">Tempo conseillé (35 min) : <strong>5'</strong> téléverser &middot; <strong>8'</strong> générer &amp; lire &middot; <strong>17'</strong> explorer les 4 espaces &middot; <strong>5'</strong> relire en équipe (HITL). <em>Si l'outil est lent (prototype, charge simultanée), profitez du traitement pour discuter en équipe — ce n'est pas du temps perdu.</em></div>
-    <p>Dans l'onglet <strong>« Corpus personnalisé »</strong>, vous allez :</p>
-    <ul class="q">
-      <li>téléverser votre document (PDF, DOCX, PPTX, TXT, Markdown ou image lisible par OCR) ;</li>
-      <li>préciser le type de contenu (<em>support d'apprentissage</em>), la langue et le public cible ;</li>
-      <li>générer un support d'apprentissage ancré uniquement dans votre corpus ;</li>
-      <li>interroger et explorer : posez vos questions, et vérifiez que chaque réponse cite ses sources.</li>
-    </ul>
+  <!-- PARTIE 2 · TEE -->
+  <section class="screen" id="tee" data-dur="600">
+    <span class="stepnum">Partie 2 · TEE</span>
+    <h2>Votre corpus devient un module d'auto-apprentissage</h2>
+    <p><span class="meta">10 min</span></p>
+    <p>En Partie 1, vous avez conçu, cadré et vérifié votre activité. Vos données sont propres, elles peuvent servir. On va maintenant les confier à TEE, qui en fera un environnement que vos apprenants explorent seuls.</p>
+    <div class="callout">La relecture humaine de la Partie 1 n'était pas une perte de temps. C'est elle qui rend vos données assez fiables pour qu'un apprenant s'en serve tout seul.</div>
+    <div class="callout blue">Le chemin est simple : vous récupérez votre fiche dans AI Studio, vous la transformez en document Word ici, puis vous la déposez dans « Corpus personnalisé ».</div>
+
     <h3>1 · Collez votre fiche</h3>
-    <p>Dans AI Studio, lancez le prompt « fiche exploitable » (étape Mise en commun), puis collez ici la fiche produite par l'IA :</p>
+    <p>Dans AI Studio, relancez le prompt « fiche exploitable » (vu à la Mise en commun), puis copiez ici ce que l'IA a produit :</p>
     <textarea class="t" id="teeData" style="min-height:150px" placeholder="Collez ici la fiche générée par l'IA…"></textarea>
+
     <h3>2 · Téléchargez le document Word</h3>
-    <p>Votre fiche et le bilan du groupe sont assemblés en un fichier Word, prêt à téléverser.</p>
+    <p>On réunit votre fiche et le bilan du groupe dans un seul fichier Word, prêt à déposer.</p>
     <div style="margin:8px 0"><button class="btn" onclick="downloadWord()">⬇︎ Télécharger le document Word</button></div>
-    <h3>3 · Téléversez-le dans « Corpus personnalisé »</h3>
-    <div style="margin:8px 0 0"><a class="btn" id="teeLink" href="#" target="_blank" rel="noopener">Ouvrir le Corpus personnalisé ↗</a></div>
+
+    <h3>3 · Déposez-le dans « Corpus personnalisé »</h3>
+    <div style="margin:8px 0 0"><a class="btn" id="teeLink" href="https://tee-model-poc-731290752597.us-central1.run.app/ozel-korpus" target="_blank" rel="noopener">Ouvrir le Corpus personnalisé ↗</a></div>
     <div class="qrlink"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXEAAAFxAQMAAAC/SQrnAAAABlBMVEUiFiD///+gL/b8AAACjklEQVR42u1bOXLDQAyjo0KlnqCn+Gn20/IUP0GlCk02y3OlSRrPuECBbaKsWAlDEgBpaW+dpzCe8Yx/J/5b/Dzaa2nHrV/eXyLTj9/OPSoC9NWXvHcY/9l4xWs16OTxvW7zoXf317JPemc3t/5K/zmIFwhem+ZOx0uWXR9E1rZbxp1eyUy80PDqMPUyOOphVkjiBYlXFr1+Npm8bREv3P7VYZqdhEQjyxv2Lyi8kh8Wu/jzQH4IhFedTDTlG61pI9OHqJDB//k9gfi8NilRvtH7l2dcZ4xBPEQ7GvGCyK9N2WD/+x8tdJhEXJERL4T+1dHxbJIgimF0JJQlzYgXQn4VOq90n9Yiim2fsqORH6LgJWViWPXT4zD1RkY/CpBv7JfCKNGt/EHcAV7ID4HyK5qUeBlUdI6kIu4osn8h6WWn8dGtzD8M4Jo5iurYUy9D6S+j8a1sedfLxkCOk/VBvCDwCv11Au40CEsPhPoLrH85jffqF8QjBpdFFIkXSn4FzRjZFBOWLcKov6D4/OT7AG2klZSCvlBHfk8EP2p3/3DIZFdkz7QNbZGDeOHww0irqx9lRuJO/QWov9ItdJmcixyttZpX0t8AqoenMWVuG2aFtMGKV0jmFwzfCHaxDOJR/oY1snI8+D0R+LzLLlljrBy2RlnB9KMQ9dcJnSiDj7A+7DC/sOrhdVvD3Iy0gp0xUi+D+FFjP8oKo8ouueyLlqYmXhh8/tK2nA36GGUURvpRSHo5l3iLXYTs8lXt0NTEC4ZvjLUo71Zj/hUngCNeUHh527osBpRRT74Bh1dta5RjHz9LyR0q4gXVv2IJquZfSeON6rN/ofHDeHDjNx3Fi4ImXkj6i7/HZzzjPxv/C/5rIs3NzPrxAAAAAElFTkSuQmCC" alt="QR vers TEE Corpus personnalisé"><span>Scannez pour ouvrir<br><strong>TEE · Corpus personnalisé</strong></span></div>
-    <h3>4 · Votre module d'auto-apprentissage — 4 espaces</h3>
-    <p>Une fois votre corpus téléversé, il devient un environnement où l'apprenant travaille <em>seul</em>. Suivez les captures projetées par l'animateur·rice et explorez ses quatre espaces :</p>
-    <ul class="q">
-      <li><strong>Corpus personnalisé</strong> — générez le support d'apprentissage et interrogez vos documents (réponses sourcées).</li>
-      <li><strong>Parcours &amp; cartes d'erreurs</strong> — un parcours guidé et les erreurs typiques à travailler.</li>
-      <li><strong>Simulation interactive</strong> — entraînez-vous sur des cas de décision réalistes.</li>
-      <li><strong>Assistant</strong> — posez vos questions ; chaque réponse cite sa source dans votre corpus.</li>
-    </ul>
-    <p style="margin-top:14px"><strong>Le test « waouh » :</strong> dans l'Assistant, posez une question dont la réponse n'est PAS dans votre corpus → il refuse d'inventer et le dit. L'inverse exact de la fausse statistique de l'échauffement.</p>
-    <p style="margin-top:16px">Prompts prêts à coller dans « Interroger vos documents » :</p>
+    <p style="margin-top:14px">Une fois dans « Corpus personnalisé » : choisissez le type de contenu (support d'apprentissage), la langue et le public, téléversez votre document, puis générez le support. Vous pouvez déjà poser une question dans « Interroger vos documents ».</p>
+
+    <div class="nav">
+      <button class="btn ghost" onclick="go('reflexion')">← Retour</button>
+      <button class="btn" onclick="nextStep('teeb')">Parcours &amp; cartes d'erreurs →</button>
+    </div>
+  </section>
+
+  <!-- PARTIE 2 · Parcours & cartes d'erreurs -->
+  <section class="screen" id="teeb" data-dur="480">
+    <span class="stepnum">Partie 2 · Espace 1</span>
+    <h2>Parcours &amp; cartes d'erreurs</h2>
+    <p><span class="meta">8 min</span></p>
+    <p>Dans cet espace, l'outil vous prépare trois choses à partir de votre corpus. Générez-les une par une et regardez le résultat.</p>
+    <ol class="steps">
+      <li>Ouvrez l'onglet « Parcours &amp; cartes d'erreurs ».</li>
+      <li>Sur « Carte du processus », cliquez sur Générer. Vous obtenez la démarche étape par étape (préparation, correction individuelle, double correction, finalisation), reconstruite depuis votre corpus.</li>
+      <li>Sur « Cartes d'erreurs », cliquez sur Générer. Vous voyez les erreurs fréquentes, leurs causes et les bonnes pratiques, prêtes pour vos apprenants.</li>
+      <li>Sur « Glossaire », cliquez sur Générer. Vous récupérez les termes clés (grille, descripteur, copie atypique…) définis avec des exemples.</li>
+    </ol>
+    <div class="nav">
+      <button class="btn ghost" onclick="go('tee')">← Retour</button>
+      <button class="btn" onclick="nextStep('teec')">Simulation interactive →</button>
+    </div>
+  </section>
+
+  <!-- PARTIE 2 · Simulation interactive -->
+  <section class="screen" id="teec" data-dur="420">
+    <span class="stepnum">Partie 2 · Espace 2</span>
+    <h2>Simulation interactive</h2>
+    <p><span class="meta">7 min</span></p>
+    <p>Ici, l'apprenant s'entraîne à décider dans des situations concrètes. À vous de l'essayer.</p>
+    <ol class="steps">
+      <li>Ouvrez l'onglet « Simulation interactive ».</li>
+      <li>Cliquez sur Commencer. Une session de cinq questions démarre (copie atypique, écart de notation, cas à la frontière d'un niveau).</li>
+      <li>Pour chaque question, choisissez une réponse, puis lisez le retour qui explique pourquoi.</li>
+      <li>À la fin, regardez le bilan de la session.</li>
+    </ol>
+    <div class="nav">
+      <button class="btn ghost" onclick="go('teeb')">← Retour</button>
+      <button class="btn" onclick="nextStep('teed')">Assistant →</button>
+    </div>
+  </section>
+
+  <!-- PARTIE 2 · Assistant -->
+  <section class="screen" id="teed" data-dur="600">
+    <span class="stepnum">Partie 2 · Espace 3</span>
+    <h2>Assistant</h2>
+    <p><span class="meta">10 min</span></p>
+    <p>L'assistant répond à vos questions, mais uniquement à partir de votre corpus, et il cite toujours sa source.</p>
+    <ol class="steps">
+      <li>Ouvrez l'onglet « Assistant ».</li>
+      <li>Tapez votre question dans le champ, puis envoyez.</li>
+      <li>Lisez la réponse et vérifiez la source qu'il indique.</li>
+      <li>Faites le test : posez une question dont la réponse n'est pas dans votre corpus. Il vous dira qu'il ne sait pas, au lieu d'inventer. C'est tout le bénéfice d'un travail propre en Partie 1 : une IA qui reste honnête.</li>
+    </ol>
+    <p style="margin-top:14px">Trois questions prêtes à coller dans « Interroger vos documents » :</p>
     <div class="panel">
-      <div class="lab">① Le piège anti-invention</div>
+      <div class="lab">① Question piège (anti-invention)</div>
       <button class="copy" data-copy="teeP1">Copier</button>
       <pre id="teeP1">Quel pourcentage exact de lexique un apprenant retient-il en contexte ? Donne le chiffre et sa source, uniquement à partir de mon corpus.</pre>
     </div>
@@ -681,10 +727,10 @@ body.dark .aeflogo{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANS
       <button class="copy" data-copy="teeP3">Copier</button>
       <pre id="teeP3">Résume en 5 points l'essentiel de mes documents, et indique pour chaque point la source dans mon corpus.</pre>
     </div>
-    <div class="callout">Même principe qu'à l'étape 1 : la machine propose, l'humain valide. Rien n'est « vrai » parce que l'IA l'a produit.</div>
-    <p class="sig">Étape 2 — de l'activité conçue à l'environnement d'apprentissage. Dr. N. S. Başkan, Université de Marmara.</p>
+    <div class="callout">Une heure de travail soigné en Partie 1 (prompter, adapter, vérifier) rend possible ce module que vos apprenants utiliseront en autonomie.</div>
+    <p class="sig">Partie 2 : de l'activité conçue à l'environnement d'apprentissage. Dr. Öğr. Üyesi N. S. Başkan, Université de Marmara.</p>
     <div class="nav">
-      <button class="btn ghost" onclick="go('reflexion')">← Retour</button>
+      <button class="btn ghost" onclick="go('teec')">← Retour</button>
       <button class="btn ghost" onclick="resetAll()">↺ Recommencer</button>
     </div>
   </section>
@@ -764,8 +810,8 @@ const HITL = [
   "L'activité soutient-elle la réflexion plutôt que de donner la réponse ?"
 ];
 
-const STEPS = ["accueil","config","echauffement","t1","t2","t3","t4","partage","reflexion","tee"];
-const STEP_LABELS = {accueil:"Accueil",config:"Config",echauffement:"Repérage",t1:"T1",t2:"T2",t3:"T3",t4:"T4",partage:"Partage",reflexion:"Réflexion",tee:"TEE"};
+const STEPS = ["accueil","config","echauffement","t1","t2","t3","t4","partage","reflexion","tee","teeb","teec","teed"];
+const STEP_LABELS = {accueil:"Accueil",config:"Config",echauffement:"Repérage",t1:"T1",t2:"T2",t3:"T3",t4:"T4",partage:"Partage",reflexion:"Réflexion",tee:"Corpus",teeb:"Parcours",teec:"Simulation",teed:"Assistant"};
 
 const state = {group:null, theme:null, cecrl:"A2", decision:null, adaptLvl:"", v1:null, v3:null};
 
@@ -894,7 +940,7 @@ $$(".copy").forEach(b=> b.addEventListener("click",()=> copyText($("#"+b.dataset
 
 
 /* ---------- STEP LOCKING ---------- */
-const STEP_ORDER = ["accueil","config","echauffement","t1","t2","t3","t4","partage","reflexion","tee"];
+const STEP_ORDER = ["accueil","config","echauffement","t1","t2","t3","t4","partage","reflexion","tee","teeb","teec","teed"];
 const stateProgress = { maxUnlocked: 0 };
 
 function stepIndex(id){
